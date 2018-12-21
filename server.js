@@ -10,9 +10,10 @@ app.use(bodyParser.json());
 var routes = require('./router/router');
 var customerRouter = require('./router/customerRouter');
 var accountRouter = require('./router/accountRouter');
+var transactionRouter = require('./router/transactionRouter');
 customerRouter(app);
 routes(app);
 accountRouter(app);
-
+transactionRouter(app);
 app.listen(port);
 console.log('Learn Node JS With Kiddy, RESTful API server started on: ' + port);
