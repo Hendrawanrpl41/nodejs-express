@@ -20,12 +20,14 @@ logger.debug("Overriding 'Express' logger");
 
 var routes = require('./router/router');
 var customerRouter = require('./router/customerRouter');
+var customerRouterSequlize = require('./router/customerRouterSequelize');
 var accountRouter = require('./router/accountRouter');
 var transactionRouter = require('./router/transactionRouter');
 customerRouter(app);
+customerRouterSequlize(app);
 routes(app);
 accountRouter(app);
 transactionRouter(app);
 app.listen(port);
 // console.log('Learn Node JS With Kiddy, RESTful API server started on: ' + port);
-logger.debug("Hendrawan bootcamp, RESTful API server started on: " + port);
+logger.error("Hendrawan bootcamp, RESTful API server started on: " + port);
