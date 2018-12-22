@@ -29,7 +29,7 @@ exports.delTransaction = function (req, res) {
         if (error) {
             response.err(error, res);
         } else {
-            response.ok(rows, res);
+            response.ok("data deleted", res);
         }
     });
 };
@@ -41,7 +41,7 @@ exports.updTransaction = function (req, res) {
             console.log(error);
             response.err(error, res);
         } else {
-            response.ok(rows, res);
+            response.ok("data updated", res);
         }
     });
 };

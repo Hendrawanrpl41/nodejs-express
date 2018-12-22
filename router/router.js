@@ -3,7 +3,12 @@
 module.exports = function (app) {
     var todoList = require('../controller/controller');
     var controller = require('../controller/customerController');
-
+    app.get("/proses_get", function(req, res) {
+      // Prepare output in JSON format
+    var  response = { firstName: req.query.firstName, lastName: req.query.lastName,BirthDate : req.query.BirthDate, phoneNumber: req.query.phoneNumber };
+      console.log(response);
+      res.end(JSON.stringify(response));
+    });
     app.route('/')
         .get(todoList.index);
     // app.route('/customers').get(controller.customers);

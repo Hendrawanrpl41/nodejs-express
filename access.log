@@ -1,0 +1,5 @@
+::1 - - [22/Dec/2018:03:45:46 +0000] "POST /customer HTTP/1.1" 200 152 "http://localhost:3000/customerForm.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [22/Dec/2018:03:46:48 +0000] "GET /customer/sdfsdf HTTP/1.1" 200 26 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [22/Dec/2018:03:47:08 +0000] "GET /customerdxvdv HTTP/1.1" 404 152 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+error
+error

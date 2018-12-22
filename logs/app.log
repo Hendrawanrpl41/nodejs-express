@@ -1,0 +1,1 @@
+{"message":"::1 - - [22/Dec/2018:04:13:03 +0000] \"POST /customer HTTP/1.1\" 200 152 \"http://localhost:3000/customerForm.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\"\n","level":"info","timestamp":"2018-12-22T04:13:03.249Z"}

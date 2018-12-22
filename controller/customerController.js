@@ -18,7 +18,7 @@ exports.updateCustomer = function(req, res){
             console.log(error);
             response.err(error, res);
         }else{
-            response.ok(rows, res);
+            response.ok("data updated", res);
         }
     });
 };
@@ -27,13 +27,24 @@ exports.deleteCustomer = function(req, res){
         if(error){
             console.log(error,err);
             response.err(error, res);
+            
         }else{
-            response.ok(rows, res)
+            response.ok("data deleted", res)
+            // return "data deleted";
         }
     });
 };
 exports.inCustomer = function(req, res){
-    customerDao.insertCustomer(req.body, function(error, rows){
+    var data = { 
+        firstName: req.body.firstName,
+        lastName: req.body.lastName, 
+        birthDate: req.body.birthDate, 
+        phoneNumber: req.body.phoneNumber,
+        phoneType : req.body.phoneType,
+        username : req.body.username,
+        password : req.body.password
+     };
+    customerDao.insertCustomer(data, function(error, rows){
         if(error){
             response.err(error,res);
         }else{

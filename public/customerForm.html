@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Node Js</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    </head>
+    <body class="row col-5">
+        <form method="POST" action="http://localhost:3000/customer">
+        
+            <input class="form-control" placeholder="fist Name" name='firstName'><br>
+            <input class="form-control" placeholder="Last Name" name='lastName'><br>
+            <input class="form-control" type="date" placeholder="Brith Date" name="birthDate"><br>
+            <input class="form-control" placeholder="phone Type" name="phoneType"><br>
+            <input class="form-control" type="number" placeholder="phone Number" name="phoneNumber"><br>
+            <input class="form-control" placeholder="username" name="username"><br>
+            <input class="form-control" placeholder="password" name="password"><br>
+            <!-- <button class="btn-outline-primary" (click)='submitData($event)' [disabled]='customerFormGroup.invalid'>update</button> -->
+            <!-- <button class="btn-outline-primary" (click)='updateData($event)'>Update</button> -->
+            <button class="btn-outline-success">Input</button>
+            <!-- <button class="btn-outline-danger" (click)="deleteData(customer.customerNumber)">Delete</button> -->
+            <button (click)="cancel($event)">Cancel</button>
+        </form>
+    </body>
+</html>
