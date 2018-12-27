@@ -1,24 +1,27 @@
 module.exports = (sequelize, type) => {
   return sequelize.define(
-    "account",
-    {
+    "account", {
       accountNumber: {
         field: "accountNumber",
         type: type.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      firstName: {
+      balance: {
         field: "balance",
         type: type.INTEGER
       },
-      birthDate: {
+      openDate: {
         field: "openDate",
         type: type.DATE
       },
       customerNumber: {
-        field: "customerNumber",
-        type: type.INTEGER
+        type : type.INTEGER,
+        onDelete : "CASCADE",
+        references: {
+          model: "customer",
+          key: "customerNumber"
+        }
       },
     },
     {

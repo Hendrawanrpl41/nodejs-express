@@ -10,7 +10,7 @@ exports.ok = function (values, res) {
 };
 exports.err = function(values, res){
     var data = { 
-        'status': 200,
+        'status': 444,
         'values': values 
     };
     res.json(data);

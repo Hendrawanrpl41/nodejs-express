@@ -1,8 +1,8 @@
-const { Customer } = require("../db/sequelize");
+const { Account,Customer } = require("../db/sequelize");
 var logger = require("../winston-logger");
 
 exports.getById = function getById(id, callback) {
-  Customer.findById(id)
+  Account.findById(id)
     .then(account => {
       return callback(null, account);
     })
@@ -13,7 +13,9 @@ exports.getById = function getById(id, callback) {
 };
 
 exports.getAll = function getAll(callback) {
-  Customer.findAll()
+    Account.findAll({
+        include: [Customer]
+    })
     .then(accounts => {
       return callback(null, accounts);
     })
@@ -24,18 +26,37 @@ exports.getAll = function getAll(callback) {
 };
 
 exports.insert = function insert(data, callback) {
-  Customer.create(data)
-    .then(account => {
-      return callback(null, account);
-    })
-    .catch(error => {
-      logger.error(error);
-      return callback(error);
-    });
-};
+    account = data;
+    if (account.customer == null && account.customer_number == null) {
+        res.json('customer kosong');
+    } else {
+        if (account.customer_number == null) {
+            account.customer_number = account.customer.customerNumber;
+        }
+    }
+
+    Account.create(account)
+        .then(account => {
+            return callback(null, account);
+        })
+        .catch((error) => {
+            logger.error(error);
+            return callback(error);
+        })
+}
+
 
 exports.update = function update(id, data, callback) {
-  Customer.update(data, {
+  account = data;
+  if(account.customer == null && account.customerNumber){
+    res.json('customer kosong');
+  }else{
+    if(account.customerNumber == null){
+      account.customerNumber = account.customer.customerNumber
+      
+    }
+  }
+  Account.update(data, {
     where: { accountNumber: data.accountNumber },
     returning: true,
     plain: true
@@ -52,7 +73,7 @@ exports.update = function update(id, data, callback) {
 };
 
 exports.del = function del(id, callback) {
-  Customer.destroy({
+  Account.destroy({
     where: { accountNumber: id }
   })
     .then(result => {
