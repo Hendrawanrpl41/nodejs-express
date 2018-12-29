@@ -9,8 +9,8 @@ exports.transactions = function (req, res) {
             logger.error('error while select: ' + error);
             response.err(error, res);
         } else {
-            // response.ok(rows, res);
-            res.json(rows);
+            response.ok(rows, res);
+            // res.json(rows);
         }
     });
 };

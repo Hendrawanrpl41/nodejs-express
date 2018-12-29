@@ -1,4 +1,4 @@
-const { Transaction, Account, Customer } = require("../db/sequelize");
+let { Transaction, Account, Customer } = require("../db/sequelize");
 var logger = require("../winston-logger");
 
 exports.getById = function getById(id, callback) {
@@ -30,7 +30,7 @@ exports.getAll = function getAll(callback) {
 };
 
 exports.insert = function insert(data, callback) {
-    transaction = data;
+   var transaction = data;
     if (transaction.account == null && transaction.accountNumber == null) {
         res.json('account kosong');
     } else {
@@ -51,7 +51,7 @@ exports.insert = function insert(data, callback) {
 
 
 exports.update = function update(id, data, callback) {
-    transaction = data;
+   var transaction = data;
     if (transaction.account == null && transaction.accountNumber) {
         res.json('account kosong');
     } else {
